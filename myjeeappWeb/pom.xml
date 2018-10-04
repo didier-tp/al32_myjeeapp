@@ -7,4 +7,60 @@
   </parent>
   <artifactId>myjeeappWeb</artifactId>
   <packaging>war</packaging>
+  
+   <properties>
+     <failOnMissingWebXml>false</failOnMissingWebXml>
+     <!-- le serveur JBoss comporte déjà en lui les .jar de JSF (équivalent de myfaces) -->
+  </properties>
+  
+  <dependencies>
+  
+  <dependency>
+	<groupId>org.primefaces</groupId>
+	<artifactId>primefaces</artifactId>
+	<!-- complément facultatif pour JSF 2 -->
+	<version>6.1</version>
+</dependency>
+  
+  
+   <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <!-- javaee-api = pack d'api jee : servlet-api + JSF + JAX-RS + ... --> 
+            <version>7.0</version>
+            <scope>provided</scope> <!-- dejà fourni par jboss -->
+   </dependency>
+   
+	
+
+	<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
+    		<version>2.8.11</version>
+    		<scope>provided</scope>
+   </dependency>
+	
+	<dependency>
+	     <groupId>fr.afcepf.al32</groupId>
+  		<artifactId>myjeeappEjb</artifactId>
+  		 <!--  sans EJB avec tomcat maven placera dans la partie WEB-INF/lib du .war construit 
+  		       le fichier myappCore...jar (projet myappEjb packagé ) 
+  		       et le scope devait être à compile (valeur par défaut) 
+  		     ============
+  		     Maintenant dans le cadre d'un EAR , le projet myappEjb (EJB) 
+  		     sera déployé à coté du .war (dans l'ear)
+  		     et le code des EJB chargé dans jboss sera fourni à la partie web
+  		     ==> besoin de scope provided  
+  		 -->
+ 		 <version>0.0.1-SNAPSHOT</version>
+ 		 <scope>provided</scope>
+	</dependency>
+  
+  </dependencies>
+  
+  
+  <build>
+      <finalName>myjeeappWeb</finalName> <!-- pour construire myjeeappWeb.war -->
+  </build>
+  
 </project>

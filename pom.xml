@@ -4,6 +4,15 @@
   <artifactId>al32_myjeeapp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  
+  <properties>
+     <!-- propriétées qui seront héritées par tous les sous modules de l'application -->
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <!-- penser aussi à régler UTF8 dans eclipe (windows/preferences/general/workspace) -->
+  </properties>
+  
   <modules>
   	<module>myjeeappEjb</module>
   	<module>myjeeappWeb</module>
