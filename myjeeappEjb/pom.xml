@@ -19,6 +19,14 @@
             <scope>provided</scope> <!-- dejà fourni par jboss -->
    </dependency>
    
+   <!-- lombok pour generer automatiquement get/set -->
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.2</version>
+	    <scope>provided</scope>
+	</dependency>
+   
    <dependency>
     		<groupId>com.fasterxml.jackson.core</groupId>
     		<artifactId>jackson-annotations</artifactId>
