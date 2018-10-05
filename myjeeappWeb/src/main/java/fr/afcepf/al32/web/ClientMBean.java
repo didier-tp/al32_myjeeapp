@@ -41,7 +41,12 @@ public class ClientMBean {
 	}
 	
 	public String ajouterClient() {
-		serviceClient.saveOrUpdateClient(this.client);
+		try {
+			serviceClient.saveOrUpdateClient(this.client);
+		} catch (Exception e) {
+			//e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
 		return recupererTousLesClients(); //réactualiser la liste
 		//return null;
 	}

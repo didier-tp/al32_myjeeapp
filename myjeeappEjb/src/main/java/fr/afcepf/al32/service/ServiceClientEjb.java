@@ -28,7 +28,12 @@ public class ServiceClientEjb implements IServiceClient {
 
 	@Override
 	public Client saveOrUpdateClient(Client c) {
-		return clientDao.save(c);
+		clientDao.save(c);
+		if(c.getAdressePrincipale().getCp().equals("-1")) {
+			throw new RuntimeException("-1 = codePostal invalide");
+			//exemple "scolaire" pour visualiser rollback automatique sur EJB
+		}
+		return c;
 	}
 
 }
