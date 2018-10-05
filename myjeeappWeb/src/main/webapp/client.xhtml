@@ -10,10 +10,26 @@
 </h:head>
 <h:body>
     <h:form>
-        <h:commandButton value="recup client"
-                        action="#{clientMBean.recupererClient}" />
+        nom:<h:inputText value="#{clientMBean.client.nom}" /><br/>
+        prenom:<h:inputText value="#{clientMBean.client.prenom}" /><br/>
+        email:<h:inputText value="#{clientMBean.client.email}" /><br/>
+        telephone:<h:inputText value="#{clientMBean.client.telephone}" /><br/>
+        rue:<h:inputText value="#{clientMBean.client.adressePrincipale.rue}" /><br/>
+        cp:<h:inputText value="#{clientMBean.client.adressePrincipale.cp}" /><br/>
+        ville:<h:inputText value="#{clientMBean.client.adressePrincipale.ville}" /><br/>
+        
+        <h:commandButton value="ajouter client"
+                        action="#{clientMBean.ajouterClient}" />
           
     </h:form>
-    <h:outputText value="#{clientMBean.client.nom}"/> ...
+    <hr/>
+    <h:dataTable border="1" var="c" value="#{clientMBean.listeClients}"> 
+      	<h:column><h:outputText value="#{c.numero}"/></h:column>
+    	<h:column><h:outputText value="#{c.nom}"/></h:column>
+    	<h:column><h:outputText value="#{c.prenom}"/></h:column>
+    	<h:column><h:outputText value="#{c.telephone}"/></h:column>
+    	<h:column><h:outputText value="#{c.email}"/></h:column>
+    	<h:column><h:outputText value="#{c.adressePrincipale}"/></h:column>
+    </h:dataTable>
 </h:body>
 </html>
