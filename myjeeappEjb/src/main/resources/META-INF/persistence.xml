@@ -9,6 +9,7 @@
 	  <jta-data-source>java:jboss/datasources/BankDsMysql</jta-data-source>
 	
 	     <class>fr.afcepf.al32.entity.Client</class>
+	     <class>fr.afcepf.al32.entity.Adresse</class>
 	    
 	 
 	 <properties>
@@ -27,7 +28,21 @@
 		
 		
 		<property name="hibernate.show_sql" value="true"/>
-     </properties>
+
+     
+     <!-- pour demander à generer create.sql et drop.sql pas parfaits 
+          et a generalement retoucher
+          Attention : paramétrage temporaire seulement (quelques conflits avec import.sql
+            et hibernate.hbm2ddl.auto ) -->
+         <!--  
+       <property name="javax.persistence.schema-generation.scripts.action" 
+                 value="drop-and-create"/>
+       <property name="javax.persistence.schema-generation.scripts.create-target"  
+                 value="c:/temp/create.sql" />  
+       <property name="javax.persistence.schema-generation.scripts.drop-target"  
+                 value="c:/temp/drop.sql" />	
+         -->                                      
+</properties> 
 	 
 	</persistence-unit>
 </persistence>
